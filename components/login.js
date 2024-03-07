@@ -14,7 +14,7 @@ export default function login() {
         // button pressed
         console.log('input number:', inputValue);
         console.log('Pass:', inputPass)
-      };
+    };
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Celular</Text>
