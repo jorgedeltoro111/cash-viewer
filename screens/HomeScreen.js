@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { Camera, CameraType, FlashMode } from 'expo-camera';
+import { Camera, CameraType } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
 import Button from '../components/Button';
  
@@ -8,7 +8,7 @@ export default function HomeScreen() {
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
   const [image, setImage] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
-  const [flash, setFlash] = useState(FlashMode.off); 
+  const [flash, setFlash] = useState(Camera.Constants.FlashMode.off); 
   const cameraRef = useRef(null);
 
   useEffect(() => {
@@ -66,7 +66,8 @@ export default function HomeScreen() {
         }}>
           <Button icon={'retweet'} onPress={() => {setType(type === CameraType.back ? CameraType.front : CameraType.back)}}/>
           <Button icon={'flash'} onPress={() => {
-             setFlash(flash === FlashMode.off ? FlashMode.on : FlashMode.off )
+            setFlash(flash === Camera.Constants.FlashMode.off ? 
+            Camera.Constants.FlashMode.torch : Camera.Constants.FlashMode.off )
           }}/>
         </View>
       </Camera>
