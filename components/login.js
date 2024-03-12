@@ -1,4 +1,4 @@
-import { View, TextInput, Button, StyleSheet, Text} from 'react-native';
+import { View, TextInput, Button, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 
 
@@ -17,11 +17,7 @@ export default function Login(props) {
     const handleButtonPress = () => {
         console.log('Number:', number);
         console.log('Password:', password)
-        if(number === '1' && password === '1'){
-            props.onLogin();
-        }else{
-            console.log('Contraseña incorrecta');
-        }
+        props.onLogin();
     };
     return (
         <View style={styles.container}>
@@ -40,13 +36,21 @@ export default function Login(props) {
                 value={password}
                 onChangeText={handleInputPassword}
             />
-            <View style={styles.buttonContainer}>
-                <Button
-                    color='white'
-                    title="Ingresar"
-                    onPress={handleButtonPress}
-                />
-            </View>
+            <TouchableOpacity 
+                onPress={handleButtonPress} 
+                style={styles.buttonIngresar}
+                accessible={true}
+                accessibilityLabel="Ingresar"
+            >
+                <Text style={styles.buttonText}>Ingresar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.buttonRegistrar}
+                accessible={true}
+                accessibilityLabel="Registrar"
+            >
+                <Text style={styles.buttonText}>Registrar</Text>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -58,7 +62,8 @@ const styles = StyleSheet.create({
     },  
     text:{
         margin: 15,
-        fontSize: 20
+        fontSize: 20,
+        fontWeight: 'bold'
     },
     input:{
         backgroundColor: 'white',
@@ -69,12 +74,25 @@ const styles = StyleSheet.create({
         width: 200,
         textAlign: 'center'
     },
-    buttonContainer:{
+    buttonIngresar:{
         marginTop: 30,
         backgroundColor: '#61c26a',
         borderWidth: 2, 
         borderColor: 'black',
         borderRadius: 15,
-        width: 150
+        padding: 15,
+    },
+    buttonRegistrar:{
+        marginTop: 30,
+        backgroundColor: '#63d3ff',
+        borderWidth: 2, 
+        borderColor: 'black',
+        borderRadius: 15,
+        padding: 15,
+    },
+    buttonText:{
+        fontSize: 17,
+        width: 100,
+        textAlign: 'center'
     }
 });
