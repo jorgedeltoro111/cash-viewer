@@ -2,29 +2,10 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React, { useState, useEffect } from 'react';
 import Login from '../components/Login';
 import { useNavigation } from '@react-navigation/native';
-import Sound from 'react-native-sound';
+
 export default function FinanceScreen() {
     const [isLogin, setIsLogin] = useState(false);
     const navigation = useNavigation();
-    const audioFileInstructions = '../audio/instructions.mp3';
-
-    const sound = new Sound(audioFileInstructions, Sound.MAIN_BUNDLE, (error) => {
-        if (error) {
-            console.log('Error al cargar el sonido', error);
-            return;
-        }
-        console.log('Carga del sonido completada');
-    });
-
-    const instructionsAudio = () => {
-        sound.play((success) => {
-            if (success) {
-            console.log('Reproducción exitosa');
-            } else {
-            console.log('Error al reproducir el sonido');
-            }
-        });
-    }
 
     useEffect(() => {//cada vez que isLogin cambie de estado esta hara las instrucciones que estan indicadas en la funcion useEffect.
         if (isLogin) {
@@ -36,6 +17,11 @@ export default function FinanceScreen() {
         setIsLogin(true);
     }
 
+    const cerrarSesion = () => {
+        setIsLogin(false);
+        navigation.navigate('Finanzas');
+    }
+
     return (
         <View>
             {
@@ -44,11 +30,32 @@ export default function FinanceScreen() {
                 <View>
                     <TouchableOpacity 
                         accessible={true}
-                        accessibilityLabel="Instrucciones"
-                        style={styles.instructionsButton} 
-                        onPress={instructionsAudio}
+                        accessibilityLabel="Ingresar dinero"
+                        style={styles.buttonIngreso} 
                     >
-                        <Text style={styles.buttonText}>Instrucciones</Text>
+                        <Text style={styles.buttonText}>Ingresar dinero</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        accessible={true}
+                        accessibilityLabel="Retirar dinero"
+                        style={styles.buttonSacar} 
+                    >
+                        <Text style={styles.buttonText}>Retirar dinero</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        accessible={true}
+                        accessibilityLabel="Consultar saldo actual"
+                        style={styles.buttonConsulta} 
+                    >
+                        <Text style={styles.buttonText}>Consultar saldo</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        accessible={true}
+                        accessibilityLabel="Cerrar sesión"
+                        style={styles.buttonCerrarSesion} 
+                        onPress={cerrarSesion}
+                    >
+                        <Text style={styles.buttonText}>Cerrar sesión</Text>
                     </TouchableOpacity>
                 </View>
             }
@@ -56,5 +63,45 @@ export default function FinanceScreen() {
     )
 }
 const styles = StyleSheet.create({
-    
+    buttonIngreso:{
+        marginTop: 100,
+        backgroundColor: '#61c26a',
+        borderWidth: 2, 
+        borderColor: 'black',
+        borderRadius: 15,
+        padding: 15,
+        margin: 10,
+    },
+    buttonSacar:{
+        marginTop: 100,
+        backgroundColor: '#fa2a3a',
+        borderWidth: 2, 
+        borderColor: 'black',
+        borderRadius: 15,
+        padding: 15,
+        margin: 10,
+    },
+    buttonConsulta:{
+        marginTop: 100,
+        backgroundColor: '#7ff1e0',
+        borderWidth: 2, 
+        borderColor: 'black',
+        borderRadius: 15,
+        padding: 15,
+        margin: 10,
+    },
+    buttonCerrarSesion:{
+        marginTop: 100,
+        backgroundColor: '#9d9382',
+        borderWidth: 2, 
+        borderColor: 'black',
+        borderRadius: 15,
+        padding: 15,
+        margin: 10,
+    },
+    buttonText:{
+        fontSize: 17,
+        textAlign: 'center',
+        fontWeight: 'bold'
+    }
 });
