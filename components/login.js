@@ -1,19 +1,27 @@
 import { View, TextInput, Button, StyleSheet, Text} from 'react-native';
 import React, { useState } from 'react';
 
-export default function login() {
-    const [inputValue, setInputValue] = useState('');
-    const [inputPass, setInputPass] = useState('');
-    const handleInputChange = (text) => {
-        setInputValue(text);
+
+export default function Login(props) {
+    const [number, setNumber] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleInputNumber = (text) => {
+        setNumber(text);
     };
-    const handleInputChangePass = (text) => {
-        setInputPass(text);
+
+    const handleInputPassword = (text) => {
+        setPassword(text);
     };
+
     const handleButtonPress = () => {
-        // button pressed
-        console.log('input number:', inputValue);
-        console.log('Pass:', inputPass)
+        console.log('Number:', number);
+        console.log('Password:', password)
+        if(number === '1' && password === '1'){
+            props.onLogin();
+        }else{
+            console.log('Contraseña incorrecta');
+        }
     };
     return (
         <View style={styles.container}>
@@ -21,16 +29,16 @@ export default function login() {
             <TextInput
                 style={styles.input}
                 placeholder="3328445765"
-                value={inputValue}
-                onChangeText={handleInputChange}
+                value={number}
+                onChangeText={handleInputNumber}
             />
             <Text style={styles.text}>Contraseña</Text>
             <TextInput
                 style={styles.input}
                 placeholder='password'
                 secureTextEntry={true}
-                value={inputPass}
-                onChangeText={handleInputChangePass}
+                value={password}
+                onChangeText={handleInputPassword}
             />
             <View style={styles.buttonContainer}>
                 <Button
