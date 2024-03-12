@@ -23,7 +23,7 @@ export default function FinanceScreen() {
     }
 
     return (
-        <View>
+        <View style={styles.container}>
             {
                 !isLogin ? <Login onLogin={onLogin}/> 
                 :  
@@ -63,6 +63,10 @@ export default function FinanceScreen() {
     )
 }
 const styles = StyleSheet.create({
+    container:{
+        flex: 1,
+        backgroundColor: '#dee7e7'
+    },
     buttonIngreso:{
         marginTop: 100,
         backgroundColor: '#61c26a',
