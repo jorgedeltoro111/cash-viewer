@@ -37,7 +37,7 @@ export default function Login(props) {
             <Text style={styles.text}>Contraseña</Text>
             <TextInput
                 style={styles.input}
-                placeholder='password'
+                placeholder='contraseña'
                 secureTextEntry={true}
                 value={password}
                 onChangeText={handleInputPassword}
