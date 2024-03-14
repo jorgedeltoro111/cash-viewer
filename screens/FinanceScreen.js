@@ -33,14 +33,14 @@ export default function FinanceScreen() {
                         accessible={true}
                         accessibilityLabel="Ingresar dinero"
                         style={styles.buttonIngreso} 
-                        onPress={() => {navigation.navigate('IngresarDinero')}}
+                        onPress={() => {navigation.navigate('Ingresar Dinero')}}
                     >
                         <Text style={styles.buttonText}>Ingresar dinero</Text>
                     </TouchableOpacity>
                     <TouchableOpacity 
                         accessible={true}
                         accessibilityLabel="Retirar dinero"
-                        onPress={() => {navigation.navigate('RetirarDinero')}}
+                        onPress={() => {navigation.navigate('Retirar Dinero')}}
                         style={styles.buttonSacar} 
                     >
                         <Text style={styles.buttonText}>Retirar dinero</Text>
@@ -49,6 +49,7 @@ export default function FinanceScreen() {
                         accessible={true}
                         accessibilityLabel="Consultar saldo actual"
                         style={styles.buttonConsulta} 
+                        onPress={() => {navigation.navigate('Consultar Saldo')}}
                     >
                         <Text style={styles.buttonText}>Consultar saldo</Text>
                     </TouchableOpacity>

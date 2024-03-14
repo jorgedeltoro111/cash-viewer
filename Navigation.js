@@ -9,7 +9,7 @@ import FinanceScreen from './screens/FinanceScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import IngresarDinero from './components/IngresarDinero';
 import RetirarDinero from "./components/RetirarDinero";
-
+import ConsultarSaldo from "./components/ConsultarSaldo";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -18,8 +18,9 @@ function MainStack(){
     return(
         <Stack.Navigator>
             <Stack.Screen name="Atrás" component={MyTabs} options={{headerShown: false}}/>
-            <Stack.Screen name="IngresarDinero" component={IngresarDinero}/>
-            <Stack.Screen name="RetirarDinero" component={RetirarDinero}/>
+            <Stack.Screen name="Ingresar Dinero" component={IngresarDinero}/>
+            <Stack.Screen name="Retirar Dinero" component={RetirarDinero}/>
+            <Stack.Screen name="Consultar Saldo" component={ConsultarSaldo}/>
         </Stack.Navigator>
     )
 }
