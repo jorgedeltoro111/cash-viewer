@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@madzadev/audio-player": "^2.1.11",
+    "@react-native-masked-view/masked-view": "0.3.0",
     "@react-navigation/bottom-tabs": "^6.5.12",
-    "@react-navigation/native": "^6.1.10",
+    "@react-navigation/native": "^6.1.16",
+    "@react-navigation/stack": "^6.3.28",
     "expo": "~50.0.6",
     "expo-camera": "~14.0.6",
     "expo-media-library": "~15.9.1",
@@ -19,6 +21,7 @@
     "react": "18.2.0",
     "react-native": "0.73.4",
     "react-native-camera": "^4.2.1",
+    "react-native-gesture-handler": "~2.14.0",
     "react-native-safe-area-context": "4.8.2",
     "react-native-screens": "~3.29.0",
     "react-native-sound": "^0.11.2"

@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React, { useState, useEffect } from 'react';
 import Login from '../components/Login';
 import { useNavigation } from '@react-navigation/native';
+import RetirarDinero from '../components/RetirarDinero';
 
 export default function FinanceScreen() {
     const [isLogin, setIsLogin] = useState(false);
@@ -32,12 +33,14 @@ export default function FinanceScreen() {
                         accessible={true}
                         accessibilityLabel="Ingresar dinero"
                         style={styles.buttonIngreso} 
+                        onPress={() => {navigation.navigate('IngresarDinero')}}
                     >
                         <Text style={styles.buttonText}>Ingresar dinero</Text>
                     </TouchableOpacity>
                     <TouchableOpacity 
                         accessible={true}
                         accessibilityLabel="Retirar dinero"
+                        onPress={() => {navigation.navigate('RetirarDinero')}}
                         style={styles.buttonSacar} 
                     >
                         <Text style={styles.buttonText}>Retirar dinero</Text>
