@@ -1,5 +1,5 @@
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 export default function IngresarDinero() {
   const [monto, setMonto] = useState(0);
   const [concepto, setConcepto] = useState('');
