@@ -2,7 +2,6 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React, { useState, useEffect } from 'react';
 import Login from '../components/Login';
 import { useNavigation } from '@react-navigation/native';
-import RetirarDinero from '../components/RetirarDinero';
 
 export default function FinanceScreen() {
     const [isLogin, setIsLogin] = useState(false);
