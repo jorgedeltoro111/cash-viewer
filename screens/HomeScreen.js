@@ -64,8 +64,8 @@ export default function HomeScreen() {
           justifyContent: 'space-between',
           padding: 30,
         }}>
-          <Button icon={'retweet'} onPress={() => {setType(type === CameraType.back ? CameraType.front : CameraType.back)}}/>
-          <Button icon={'flash'} onPress={() => {
+          <Button title={'Cambiar camara'} icon={'retweet'} onPress={() => {setType(type === CameraType.back ? CameraType.front : CameraType.back)}}/>
+          <Button title={'Flash'} icon={'flash'} onPress={() => {
             setFlash(flash === Camera.Constants.FlashMode.off ? 
             Camera.Constants.FlashMode.torch : Camera.Constants.FlashMode.off )
           }}/>
@@ -81,7 +81,7 @@ export default function HomeScreen() {
         :
           <View style={styles.buttons}> 
             <Button style={{flex: 1}} title={'Volver a tomar'} icon={'retweet'} onPress={reset}/>
-            <Button style={{flex: 1}} title={'Save'} icon={"retweet"} onPress={save}/>
+            <Button style={{flex: 1}} title={'Guardar'} icon={"retweet"} onPress={save}/>
           </View>
         }
       </View>

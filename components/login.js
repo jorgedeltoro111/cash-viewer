@@ -30,14 +30,14 @@ export default function Login(props) {
             <Text style={styles.text}>Celular</Text>
             <TextInput
                 style={styles.input}
-                placeholder="3328445765"
+                placeholder="Ingrese su numero telefonico"
                 value={number}
                 onChangeText={handleInputNumber}
             />
             <Text style={styles.text}>Contraseña</Text>
             <TextInput
                 style={styles.input}
-                placeholder='contraseña'
+                placeholder='ingrese su contraseña'
                 secureTextEntry={true}
                 value={password}
                 onChangeText={handleInputPassword}
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderRadius: 15,
         padding: 15,
-        marginHorizontal: 5
+        marginHorizontal: 5,
     },
     buttonText:{
         fontSize: 17,

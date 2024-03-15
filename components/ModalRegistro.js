@@ -8,7 +8,7 @@ export default function ModalRegistro(props) {
             <Text style={styles.text}>Número de celular</Text>
             <TextInput
                 style={styles.input}
-                placeholder="3317050179"
+                placeholder="Ingrese su numero de celular"
                 placeholderTextColor="#c1c9c8"
                 value={props.number}
                 onChangeText={props.handleInputPassword}
@@ -16,7 +16,7 @@ export default function ModalRegistro(props) {
             <Text style={styles.text}>Contraseña</Text>
             <TextInput
                 style={styles.input}
-                placeholder='contraseña'
+                placeholder='Ingrese una nueva contraseña'
                 placeholderTextColor="#c1c9c8"
                 secureTextEntry={true}
                 value={props.password}
@@ -25,7 +25,7 @@ export default function ModalRegistro(props) {
             <Text style={styles.text}>Repetir contraseña</Text>
             <TextInput
                 style={styles.input}
-                placeholder='contraseña'
+                placeholder='Repita la nueva contraseña'
                 placeholderTextColor="#c1c9c8"
                 secureTextEntry={true}
                 value={props.password}

@@ -27,13 +27,13 @@ export default function IngresarDinero() {
       <Text style={styles.texto}>Monto</Text>
       <TextInput
         style={styles.input}
-        placeholder='230'
+        placeholder='Ingrese el monto'
         onChangeText={handleInputMonto}
       />
       <Text style={styles.texto}>Concepto</Text>
       <TextInput
         style={styles.input}
-        placeholder='Cine'
+        placeholder='Ingrese el concepto'
         onChangeText={handleInputText}
       />
       <TouchableOpacity
@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
   },
   texto:{
     fontSize: 25,
-    marginTop: 15
+    marginTop: 15,
+    fontWeight: 'bold'
   },
   input:{
     borderRadius: 5,
@@ -77,6 +78,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
 },
 textoBoton:{
-  fontSize: 20
+  fontSize: 20,
+  fontWeight: 'bold'
 }
 })
