@@ -10,6 +10,7 @@ import SettingsScreen from './screens/SettingsScreen';
 import IngresarDinero from './components/IngresarDinero';
 import RetirarDinero from "./components/RetirarDinero";
 import ConsultarSaldo from "./components/ConsultarSaldo";
+import Modificar from "./components/Modificar";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -21,6 +22,7 @@ function MainStack(){
             <Stack.Screen name="Ingresar Dinero" component={IngresarDinero}/>
             <Stack.Screen name="Retirar Dinero" component={RetirarDinero}/>
             <Stack.Screen name="Consultar Saldo" component={ConsultarSaldo}/>
+            <Stack.Screen name="Configuración de usuario" component={Modificar}/>
         </Stack.Navigator>
     )
 }
@@ -34,7 +36,7 @@ function MyTabs(){
             <Tab.Screen name="Finanzas" component={FinanceScreen} options={{
                 tabBarIcon: ({color, size}) => <Icon name="money-check-alt" color={color} size={size}/>,
             }}/>
-            <Tab.Screen name="Configuración" component={SettingsScreen} options={{
+            <Tab.Screen name="Información" component={SettingsScreen} options={{
                 tabBarIcon: ({color, size}) => <Icon name="user-cog" color={color} size={size}/>,
             }}/>
         </Tab.Navigator>
