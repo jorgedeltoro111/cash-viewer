@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import ModalRegistro from './ModalRegistro';
 
 export default function Login(props) {
-    const [number, setNumber] = useState('');
-    const [password, setPassword] = useState('');
+    const [numeroCelular, setNumeroCelular] = useState('');
+    const [contrasenia, setContrasenia] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const actualizarModalIsOpen = (nuevoValor) => {
@@ -12,18 +12,27 @@ export default function Login(props) {
     }
 
     const handleInputNumber = (text) => {
-        setNumber(text);
+        setNumeroCelular(text);
     };
 
     const handleInputPassword = (text) => {
-        setPassword(text);
+        setContrasenia(text);
     };
 
-    const handleButtonPress = () => {
-        console.log('Number:', number);
-        console.log('Password:', password)
-        props.onLogin();
-    };
+    const handleButtonPress = async () => {
+        try {
+            const respuesta = await fetch('https://cashviewer.000webhostapp.com/usuario.php?action=iniciarSesion&numeroCelular=${numeroCelular}');
+            const informacion = await respuesta.json();
+            console.log(informacion);
+            if (informacion.mensaje == "Inicio de sesion exitoso") {
+                props.onLogin();
+            } else {
+                // Podría ser que lo mandé de regreso a la camara
+            }
+        } catch (error) {
+            console.error("Error al iniciar sesion: ", error);
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -31,7 +40,7 @@ export default function Login(props) {
             <TextInput
                 style={styles.input}
                 placeholder="Ingrese su numero telefonico"
-                value={number}
+                value={numeroCelular}
                 onChangeText={handleInputNumber}
             />
             <Text style={styles.text}>Contraseña</Text>
@@ -39,7 +48,7 @@ export default function Login(props) {
                 style={styles.input}
                 placeholder='ingrese su contraseña'
                 secureTextEntry={true}
-                value={password}
+                value={contrasenia}
                 onChangeText={handleInputPassword}
             />
             <View style={styles.row}>
@@ -63,9 +72,9 @@ export default function Login(props) {
             
             <Modal style={styles.modal} visible={modalIsOpen}>
                 <ModalRegistro 
-                    number={number}
+                    numeroCelular={numeroCelular}
                     actualizarModalIsOpen={actualizarModalIsOpen}
-                    password={password}
+                    contrasenia={contrasenia}
                     handleInputNumber={handleInputNumber}
                     handleInputPassword={handleInputPassword}
                 />

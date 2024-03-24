@@ -1,7 +1,27 @@
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react' 
 
 export default function ModalRegistro(props) {
+    const registrarUsuario = async () => {
+        try {
+            const response = await fetch('https://cashviewer.000webhostapp.com/usuario.php?action=registrarUsuario', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    numeroCelular: props.numeroCelular,
+                    contrasenia: props.contrasenia,
+                }),
+            });
+
+            const data = await response.json();
+            console.log(data); // Maneja la respuesta del servidor aquí
+        } catch (error) {
+            console.error('Error al registrar:', error);
+        }
+    };
+
     return (
         <View style={styles.modalContent}>
             <Text style={styles.title}>Registro</Text>
@@ -10,8 +30,8 @@ export default function ModalRegistro(props) {
                 style={styles.input}
                 placeholder="Ingrese su numero de celular"
                 placeholderTextColor="#c1c9c8"
-                value={props.number}
-                onChangeText={props.handleInputPassword}
+                value={props.numeroCelular}
+                onChangeText={props.handleInputNumber}
             />
             <Text style={styles.text}>Contraseña</Text>
             <TextInput
@@ -19,7 +39,7 @@ export default function ModalRegistro(props) {
                 placeholder='Ingrese una nueva contraseña'
                 placeholderTextColor="#c1c9c8"
                 secureTextEntry={true}
-                value={props.password}
+                value={props.contrasenia}
                 onChangeText={props.handleInputPassword}
             />
             <Text style={styles.text}>Repetir contraseña</Text>
@@ -28,7 +48,7 @@ export default function ModalRegistro(props) {
                 placeholder='Repita la nueva contraseña'
                 placeholderTextColor="#c1c9c8"
                 secureTextEntry={true}
-                value={props.password}
+                value={props.contrasenia}
                 onChangeText={props.handleInputPassword}
             />
             <View style={styles.row}>
@@ -36,6 +56,7 @@ export default function ModalRegistro(props) {
                     accessible={true}
                     accessibilityLabel="Registrar"
                     style={styles.buttonRegistrar}
+                    onPress={registrarUsuario}
                 >
                     <Text style={styles.buttonText}>Registrar</Text>
                 </TouchableOpacity>
